@@ -1,0 +1,180 @@
+/**
+ * Author:Mounika G/9096544949/mounikag449@gmail.com
+ */
+
+function addBetFirstPerson(){
+	  
+    	console.log("Adding bet for First User");
+	   var isVisible = document.getElementById('fbet2').style.display == "block";
+	   if(isVisible)
+		{
+		   console.log("Adding Thrid bet for First User");
+		  // document.forms['firstbet']['fbetv3'].style.display='block';
+		   document.getElementById('fbet3').style.display="block";	   
+		}
+	       console.log("Adding Second bet for First User");
+		   document.getElementById('fbet2').style.display = "block";
+	       //jQuery('#fbet2').css("display","block"); */
+	  
+	 
+}
+function addBetSecondPerson(){
+
+	   console.log("Adding bet for Second User");
+	   var isVisible = document.getElementById('sbet2').style.display == "block";
+	   if(isVisible)
+		{
+		   console.log("Adding Thrid bet for Second User");
+		  // document.forms['firstbet']['fbetv3'].style.display='block';
+		   document.getElementById('sbet3').style.display="block";	   
+		}
+	       console.log("Adding Second bet for Second User");
+		   document.getElementById('sbet2').style.display = "block";
+	       //jQuery('#fbet2').css("display","block"); */
+	  
+	 
+}
+
+function addBet3Person(){
+
+	   console.log("Adding bet for Third User");
+	   var isVisible = document.getElementById('tbet2').style.display == "block";
+	   if(isVisible)
+		{
+		   console.log("Adding Thrid bet for Thrid User");
+		  // document.forms['firstbet']['fbetv3'].style.display='block';
+		   document.getElementById('tbet3').style.display="block";	   
+		}
+	       console.log("Adding Second bet for Thrid User");
+		   document.getElementById('tbet2').style.display = "block";
+	       //jQuery('#fbet2').css("display","block"); */
+	  
+	 
+}
+
+
+function Validate(){
+	
+
+	 var fbet1=document.forms['firstbet']['fbetv1'].value ? document.forms['firstbet']['fbetv1'].value : -1;
+	 var fbet2=document.forms['firstbet']['fbetv2'].value ? document.forms['firstbet']['fbetv2'].value : -2;
+	 var fbet3=document.forms['firstbet']['fbetv3'].value ? document.forms['firstbet']['fbetv3'].value : -3;
+	 
+	 var sbet1=document.forms['firstbet']['sbetv1'].value ? document.forms['firstbet']['sbetv1'].value : -1;
+	 var sbet2=document.forms['firstbet']['sbetv2'].value ? document.forms['firstbet']['sbetv2'].value : -2;
+	 var sbet3=document.forms['firstbet']['sbetv3'].value ? document.forms['firstbet']['sbetv3'].value : -3;
+	 
+	 var tbet1=document.forms['firstbet']['tbetv1'].value ? document.forms['firstbet']['tbetv1'].value : -1;
+	 var tbet2=document.forms['firstbet']['tbetv2'].value ? document.forms['firstbet']['tbetv2'].value : -2;
+	 var tbet3=document.forms['firstbet']['tbetv3'].value ? document.forms['firstbet']['tbetv3'].value : -3;
+	 
+/* 	 alert("value:"+fbet1+" "+fbet2+" "+fbet3);
+	 alert("value1:"+fbet2); */
+	 
+	 if( fbet1 === fbet2 || fbet2 === fbet3 || fbet1 === fbet3 )
+     {
+		 console.log("First Person : Should not be same bets");
+		 alert("First Person : Should not be same bets");
+		 return false;
+      }
+	 if(sbet1 === sbet2 || sbet2 === sbet3 || sbet1 === sbet3)
+     {
+		 console.log("Second Person : Should not be same bets");
+		 alert("Second Person : Should not be same bets");
+		 return false;
+      }
+	 if(tbet1 === tbet2 || tbet2 === tbet3 || tbet1 === tbet3)
+     {
+		 console.log("Third Person : Should not be same bets");
+		 alert("Third Person : Should not be same bets");
+		 return false;
+      }
+	 
+	// alert("value"+randomValue());
+	//alert('Hello');
+	 var count = 0;
+	 var randomgenarry=new Array(-1,-2,-3);
+	 
+	 while (count <= 3) {
+		 var rand=randomValue();
+		 //alert(rand);
+		 //count++;
+		 var i = 1;
+		 var boll=true;
+		 while(i <= count){
+			 var randval=parseInt(randomgenarry[i]); 
+			 if(randval == rand )
+				 {
+				   boll=false;
+				   break;	   
+	   		 } 
+			  i++;
+	   		 
+		 }
+		 if(boll){
+		    randomgenarry[count]=rand;
+		    count++;
+		 } 
+	 }
+	 var winnerDetails="None";
+	 var i=0;
+	 while( i <= 2){
+		 var randval=parseInt(randomgenarry[i]);
+		 if( randval == fbet1 || randval == fbet2 || randval == fbet3 )
+	     {
+			 winnerDetails="";
+			 winnerDetails+="First Person \n";
+	      }
+		 if(randval == sbet1 || randval == sbet2 || randval == sbet2)
+	     {
+			 winnerDetails="";
+			 winnerDetails+="Second Person \n";
+	      }
+		 if(randval == tbet1 || randval == tbet2 || randval == tbet3)
+	     {
+			 winnerDetails="";
+			 winnerDetails+="Third Person \n";
+			 
+	      }
+		 
+		 i++;
+	 } 
+	 
+	 console.log("Winner:"+winnerDetails);
+	 console.log("Lucky:"+randomgenarry[0]+" "+randomgenarry[1]+" "+randomgenarry[2]);
+	 console.log("First:"+fbet1+" "+fbet2+" "+fbet3);
+	 console.log("Second:"+sbet1+" "+sbet2+" "+sbet3);
+	 console.log("Thrid:"+tbet1+" "+tbet2+" "+tbet3);
+	// alert("Winner:"+winnerDetails);
+	 document.forms['firstbet']['winner'].value=winnerDetails;
+	 /* alert("Lucky:"+randomgenarry[0]+" "+randomgenarry[1]+" "+randomgenarry[2]);
+	 alert("First:"+fbet1+" "+fbet2+" "+fbet3);
+	 alert("First:"+sbet1+" "+sbet2+" "+sbet3);
+	 alert("First:"+tbet1+" "+tbet2+" "+tbet3); */
+	 
+	 
+	 
+	return true;
+}
+
+function randomValue(){
+	var prizevalue;
+	$
+			.ajax({
+				type : "GET",
+				url : "https://www.random.org/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new",
+				async: false,
+				dataType : "text",
+				success : function(data) {
+					prizevalue=data;
+					//data1(data);
+					//alert('Data:' + prizeval);
+	               //return prizeval;
+					//async: false;
+				}
+			
+			
+			});
+	return prizevalue;
+}
+

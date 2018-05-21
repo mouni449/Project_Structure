@@ -1,0 +1,51 @@
+/**
+ * Author:Mounika G/9096544949/mounikag449@gmail.com
+ */
+
+function addUsers(){
+	var userno=document.forms['firstbet']['userno'].value;
+	console.log("Number of Users:"+userno);
+	if(userno == 1){
+		document.getElementById('fbet1').style.display="block";
+		//document.getElementById('#firstbet > h3:nth-child(1)').style.display="block";
+		jQuery('#firstbet > h3:nth-child(1)').css("display","block");
+		//document.getElementById('#addnewbet1').style.display="block";
+		jQuery('#addnewbet1').css("display","inline-block");
+		
+		
+	}
+	if(userno == 2)
+		{
+		document.getElementById('fbet1').style.display="block";
+		document.getElementById('sbet1').style.display="block";
+		/* document.getElementById('#firstbet > h3:nth-child(1)').style.display="block";
+		document.getElementById('#firstbet > h3:nth-child(2)').style.display="block"; */
+		jQuery('#firstbet > h3:nth-child(1)').css("display","block");
+		jQuery('#firstbet > h3:nth-child(8)').css("display","block");
+		/* document.getElementById('#addnewbet1').style.display="block";
+		document.getElementById('#addnewbet2').style.display="block"; */
+		 jQuery('#addnewbet1').css("display","inline-block");
+		jQuery('#addnewbet2').css("display","inline-block"); 
+		}
+	if(userno == 3)
+	{
+	document.getElementById('fbet1').style.display="block";
+	document.getElementById('sbet1').style.display="block";
+	document.getElementById('tbet1').style.display="block";
+	/* document.getElementById('#firstbet > h3:nth-child(1)').style.display="block";
+	document.getElementById('#firstbet > h3:nth-child(2)').style.display="block";
+	document.getElementById('#firstbet > h3:nth-child(3)').style.display="block"; */
+	
+	jQuery('#firstbet > h3:nth-child(1)').css("display","block");
+	jQuery('#firstbet > h3:nth-child(8)').css("display","block");
+	jQuery('#firstbet > h3:nth-child(12)').css("display","block");
+	
+	/* document.getElementById('#addnewbet1').style.display="block";
+	document.getElementById('#addnewbet2').style.display="block";
+	document.getElementById('#addnewbet3').style.display="block"; */
+ 	jQuery('#addnewbet1').css("display","inline-block");
+	jQuery('#addnewbet2').css("display","inline-block");
+	jQuery('#addnewbet3').css("display","inline-block");
+ }
+	
+}

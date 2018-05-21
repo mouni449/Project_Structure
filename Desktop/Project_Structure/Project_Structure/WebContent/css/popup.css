@@ -1,0 +1,30 @@
+@CHARSET "ISO-8859-1";
+
+#popup {
+    background-color: whitesmoke;
+    right: 20px;
+    position: absolute;
+    top: 20%;
+    margin: 0 auto;
+    width: 250px;
+    height: 200px;
+    z-index: 1100;
+}
+
+.color-box {
+    display: block;
+    height: 10px;
+    left: 13px;
+    position: absolute;
+    margin-top: 14px;
+    width: 10px;
+}
+
+#popup > ul > li{
+list-style: none;
+margin-top: 10px;}
+
+.dropdown-menu-title{
+	font-weight: bold;
+}
+

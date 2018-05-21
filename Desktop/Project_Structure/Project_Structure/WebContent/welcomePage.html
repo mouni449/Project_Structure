@@ -1,0 +1,95 @@
+<!-- Author: Mounika G
+Created Date: 1/2/2017
+Description: This is a welcome page which displays a form to accept number of users,random prize
+             value which generates by Rest API and Instructions to play the game. -->
+             
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lucky Draw !!</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="css/popup.css">
+<link rel="stylesheet" href="css/winner.css">
+<script type="text/javascript">
+	function prizeValue() {
+		var prizeval;
+		$
+				.ajax({
+					type : "GET",
+					url : "https://www.random.org/integers/?num=1&min=1000000&max=1000000000&col=1&base=10&format=plain&rnd=new",
+					dataType : "text",
+					success : function(data) {
+						prizeval = data;
+						//alert('Data:' + prizeval);
+						document.forms['prizeusers']['prize'].value = prizeval;
+						document.forms['prizeusers']['prize1'].value = prizeval;
+					}
+				});
+
+	}
+</script>
+
+</head>
+<body onload="prizeValue()" class="mstrbody">
+	<div id="main" class="page-main home-page" data-lang="en">
+		<header>
+			<div class="cnt-header-1" data-predictive-enabled="true"
+				data-predictive-uri="/bin/servlet/abbott/predictivesearchresult"
+				data-predictive-collection="lifetothefullest_abbott_en"
+				data-predictive-front-end="lifetothefullest_abbott">
+				<div class="external_links"></div>
+				<nav class="topnav"></nav>
+
+			</div>
+
+		</header>
+
+		<div class="container">
+			<!-- <h2>Select Number Of Players</h2> -->
+			<div id="popup">
+				<ul style="display: block">
+				    <li><span class="dropdown-menu-title">Instructions</span>
+						
+					<li><span class="color-box" style="background-color: #00b140;"></span>
+						<span class="dropdown-menu-item">Number of Users should not be more than three</span></li>
+					<li><span class="color-box" style="background-color: #eeb33b;"></span>
+						<span class="dropdown-menu-item">Each User get 3 chances to bet and should not be same numbers</span></li> 
+
+				</ul>
+			</div>
+			<form class="form-size"
+				action="users.jsp?val=getElementById('prize').value"
+				name="prizeusers" data-toggle="validator">
+				<div class="form-group">
+					<label for="prize">Prize Value:</label> <input type="text"
+						class="form-control" id="prize" placeholder="Enter Prize value"
+						name="prize" disabled> <input type="hidden" name="prize1"
+						id="prize1" />
+				</div>
+				<div class="form-group">
+					<label for="users">Number Of Users:</label> <input type="text"
+						class="form-control" id="userno"
+						placeholder="Enter number of users" name="userno"
+						pattern="^[1-3]$" maxlength="1"
+						title="Number of users should be less than or equal to 3">
+				</div>
+
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+
+	</div>
+
+</body>
+</html>
